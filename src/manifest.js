@@ -3,12 +3,12 @@
  */
 
 import { Navigation } from "react-native-navigation";
-import { HomeScreen } from "./ui/home";
-import { AboutScreen } from "./ui/about";
+import { HomeScreen, HOME_SCREEN } from "./ui/home";
+import { AboutScreen, ABOUT_SCREEN } from "./ui/about";
 import { colorPrimary } from "./colors";
 
-Navigation.registerComponent(`HomeScreen`, () => HomeScreen);
-Navigation.registerComponent(`AboutScreen`, () => AboutScreen);
+Navigation.registerComponent(HOME_SCREEN, () => HomeScreen);
+Navigation.registerComponent(ABOUT_SCREEN, () => AboutScreen);
 
 const entryPoint = {
   root: {
@@ -16,7 +16,7 @@ const entryPoint = {
       children: [
         {
           component: {
-            name: "HomeScreen",
+            name: HOME_SCREEN,
             options: {
               bottomTab: {
                 text: "Home",
@@ -27,7 +27,7 @@ const entryPoint = {
         },
         {
           component: {
-            name: "AboutScreen",
+            name: ABOUT_SCREEN,
             options: {
               bottomTab: {
                 text: "About",
