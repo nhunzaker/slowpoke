@@ -12,3 +12,5 @@ export const colorSecondary = "#ce93d8";
 export const colorSecondaryLight = "#ffc4ff";
 
 export const colorSecondaryDark = "#9c64a6";
+
+export const colorBackground = "#ffefd5";

@@ -5,22 +5,34 @@
 import { Navigation } from "react-native-navigation";
 import { HomeScreen, HOME_SCREEN } from "./ui/home";
 import { AboutScreen, ABOUT_SCREEN } from "./ui/about";
+import { VideoScreen, VIDEO_SCREEN } from "./ui/video";
 import { colorPrimary } from "./colors";
 
 Navigation.registerComponent(HOME_SCREEN, () => HomeScreen);
 Navigation.registerComponent(ABOUT_SCREEN, () => AboutScreen);
+Navigation.registerComponent(VIDEO_SCREEN, () => VideoScreen);
 
 const entryPoint = {
   root: {
     bottomTabs: {
       children: [
         {
-          component: {
-            name: HOME_SCREEN,
+          stack: {
+            children: [
+              {
+                component: {
+                  name: HOME_SCREEN
+                }
+              }
+            ],
             options: {
               bottomTab: {
                 text: "Home",
                 icon: require("./assets/home.png")
+              },
+              topBar: {
+                visible: false,
+                height: 0
               }
             }
           }
