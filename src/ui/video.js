@@ -59,7 +59,7 @@ export const VideoScreen = ({ url }) => {
     <Container>
       <WebView
         originWhitelist={["youtube.com"]}
-        style={{ flexBasis: "43.75%" }}
+        style={{ flexBasis: "44%" }}
         ref={player}
         source={{
           uri: frameSrc
