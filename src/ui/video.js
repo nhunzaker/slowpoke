@@ -4,7 +4,7 @@ import { View, Text } from "react-native";
 import { WebView } from "react-native-webview";
 
 import { parseYouTube } from "../support/youtube";
-import { colorBackground, colorSecondaryDark } from "../colors";
+import { colorBackground, colorSecondaryDark } from "./colors";
 
 const Container = styled.View`
   background-color: ${colorBackground};

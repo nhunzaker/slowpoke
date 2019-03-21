@@ -14,3 +14,5 @@ export const colorSecondaryLight = "#ffc4ff";
 export const colorSecondaryDark = "#9c64a6";
 
 export const colorBackground = "#ffefd5";
+
+export const colorDivider = "rgba(0, 0, 0, 0.12)";

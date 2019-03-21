@@ -8,3 +8,8 @@ project(':react-native-webview').projectDir = new File(rootProject.projectDir, '
 // https://wix.github.io/react-native-navigation/#/docs/Installing
 include ':react-native-navigation'
 project(':react-native-navigation').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-navigation/lib/android/app/')
+
+// https://github.com/Nozbe/WatermelonDB/blob/master/docs/Installation.md
+include ':watermelondb'
+project(':watermelondb').projectDir =
+        new File(rootProject.projectDir, '../node_modules/@nozbe/watermelondb/native/android')
