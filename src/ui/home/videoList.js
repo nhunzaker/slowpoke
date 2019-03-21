@@ -8,8 +8,9 @@ import { colorDivider } from "../colors";
 const Container = styled.View`
   background: white;
   flex: 1;
-  border-top-right-radius: 12px;
-  border-top-left-radius: 12px;
+  border-top-right-radius: 8px;
+  border-top-left-radius: 8px;
+  elevation: 2;
 `;
 
 const ListItem = styled.View`

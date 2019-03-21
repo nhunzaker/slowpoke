@@ -6,15 +6,18 @@ import { allVideos, createVideo } from "../../domain/videos";
 import { VideoForm } from "./videoForm";
 import { VideoList } from "./videoList";
 import { VIDEO_SCREEN } from "../video";
-import { colorPrimaryLight } from "../colors";
+import { colorPrimaryDark } from "../colors";
 
 const Container = styled.View`
   align-items: stretch;
-  background-color: ${colorPrimaryLight};
   display: flex;
-  elevation: 1;
+  elevation: 2;
   height: 100%;
-  width: 100%;
+  margin: 0 12px;
+`;
+
+const Backdrop = styled.ImageBackground`
+  background: #140f1e;
 `;
 
 export const HOME_SCREEN = "HOME_SCREEN";
@@ -47,10 +50,15 @@ export class HomeScreen extends React.Component {
 
   render() {
     return (
-      <Container>
-        <VideoForm onSubmit={this.createVideo} />
-        <VideoList items={this.state.videos} onPress={this.visitVideo} />
-      </Container>
+      <Backdrop
+        source={require("../../assets/violin.jpg")}
+        imageStyle={{ opacity: 0.3 }}
+      >
+        <Container>
+          <VideoForm onSubmit={this.createVideo} />
+          <VideoList items={this.state.videos} onPress={this.visitVideo} />
+        </Container>
+      </Backdrop>
     );
   }
 }
