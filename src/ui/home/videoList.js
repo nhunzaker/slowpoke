@@ -1,15 +1,18 @@
 import React from "react";
 import { FlatList, TouchableOpacity } from "react-native";
 import styled from "styled-components/native";
+import tinytime from "tinytime";
 
 import { colorDivider } from "../colors";
 
 const Container = styled.View`
+  background: white;
   flex: 1;
+  border-top-right-radius: 12px;
+  border-top-left-radius: 12px;
 `;
 
 const ListItem = styled.View`
-  background: white;
   border-color: ${colorDivider};
   border-bottom-width: 1px;
   padding: 16px;
@@ -18,10 +21,13 @@ const ListItem = styled.View`
 
 const DateText = styled.Text`
   font-weight: bold;
-  margin-bottom: 4px;
+  font-size: 12px;
 `;
 
-const VideoText = styled.Text``;
+const VideoText = styled.Text`
+  color: rgba(0, 0, 0, 0.88);
+  font-size: 16px;
+`;
 
 const getId = item => item.id;
 
@@ -39,13 +45,15 @@ export const VideoList = ({ items, onPress }) => {
   );
 };
 
+const dateTemplate = tinytime("{Mo}/{DD}/{YY} - {h}:{mm} {a}");
+
 const VideoListItem = ({ item, onPress }) => {
   return (
-    <ListItem>
-      <TouchableOpacity onPress={onPress.bind(null, item.url)}>
-        <DateText>{item.createdAt.toLocaleDateString()}</DateText>
+    <TouchableOpacity onPress={onPress.bind(null, item.url)}>
+      <ListItem>
+        <DateText>{dateTemplate.render(item.createdAt)}</DateText>
         <VideoText>{item.title}</VideoText>
-      </TouchableOpacity>
-    </ListItem>
+      </ListItem>
+    </TouchableOpacity>
   );
 };

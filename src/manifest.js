@@ -6,7 +6,7 @@ import { Navigation } from "react-native-navigation";
 import { HomeScreen, HOME_SCREEN } from "./ui/home";
 import { AboutScreen, ABOUT_SCREEN } from "./ui/about";
 import { VideoScreen, VIDEO_SCREEN } from "./ui/video";
-import { colorPrimary } from "./ui/colors";
+import { colorPrimary, colorTextLight } from "./ui/colors";
 
 Navigation.registerComponent(HOME_SCREEN, () => HomeScreen);
 Navigation.registerComponent(ABOUT_SCREEN, () => AboutScreen);
@@ -62,11 +62,10 @@ let options = {
     backgroundColor: colorPrimary
   },
   bottomTab: {
-    iconColor: "#ffffff",
-    textColor: "#ffffff",
-    fontFamily: "Helvetica",
-    selectedIconColor: "#ffffff",
-    selectedTextColor: "#ffffff",
+    iconColor: colorTextLight,
+    textColor: colorTextLight,
+    selectedIconColor: colorTextLight,
+    selectedTextColor: colorTextLight,
     fontSize: 10
   }
 };

@@ -6,12 +6,13 @@ import { allVideos, createVideo } from "../../domain/videos";
 import { VideoForm } from "./videoForm";
 import { VideoList } from "./videoList";
 import { VIDEO_SCREEN } from "../video";
-import { colorBackground } from "../colors";
+import { colorPrimaryLight } from "../colors";
 
 const Container = styled.View`
   align-items: stretch;
-  background-color: ${colorBackground};
+  background-color: ${colorPrimaryLight};
   display: flex;
+  elevation: 1;
   height: 100%;
   width: 100%;
 `;
