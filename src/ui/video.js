@@ -4,13 +4,13 @@ import { View, Text } from "react-native";
 import { WebView } from "react-native-webview";
 
 import { parseYouTube } from "../support/youtube";
-import { colorBackground, colorSecondaryDark } from "./colors";
+import { colorSecondaryDark } from "./colors";
 
 const Container = styled.View`
-  background-color: ${colorBackground};
-  display: flex;
-  flex-direction: column;
   align-items: stretch;
+  background-color: white;
+  display: flex;
+  elevation: 1;
   height: 100%;
   width: 100%;
 `;
