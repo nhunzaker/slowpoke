@@ -1,5 +1,5 @@
 // Derived From:
-// https://material.io/tools/color/#!/?view.left=0&view.right=0&primary.color=EF5350&secondary.color=CE93D8
+// https://material.io/tools/color/#!/?view.left=0&view.right=0&primary.color=7E57C2&secondary.color=F9A825
 
 export const colorPrimary = "#7e57c2";
 
