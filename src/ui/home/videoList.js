@@ -50,7 +50,7 @@ const dateTemplate = tinytime("{Mo}/{DD}/{YY} - {h}:{mm} {a}");
 
 const VideoListItem = ({ item, onPress }) => {
   return (
-    <TouchableOpacity onPress={onPress.bind(null, item.url)}>
+    <TouchableOpacity onPress={onPress.bind(null, item.id)}>
       <ListItem>
         <DateText>{dateTemplate.render(item.createdAt)}</DateText>
         <VideoText>{item.title}</VideoText>

@@ -5,6 +5,10 @@ export function allVideos() {
   return Videos.query().fetch();
 }
 
+export function getVideo(id) {
+  return Videos.find(id);
+}
+
 export async function createVideo(url) {
   let meta = await getYouTubeMeta(url);
 

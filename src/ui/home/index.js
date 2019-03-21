@@ -28,16 +28,16 @@ export class HomeScreen extends React.Component {
   };
 
   createVideo = async url => {
-    await createVideo(url);
+    let video = await createVideo(url);
 
-    this.visitVideo(url);
+    this.visitVideo(video.id);
   };
 
-  visitVideo = url => {
+  visitVideo = videoId => {
     Navigation.push(this.props.componentId, {
       component: {
         name: VIDEO_SCREEN,
-        passProps: { url }
+        passProps: { videoId }
       }
     });
   };

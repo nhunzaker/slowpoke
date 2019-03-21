@@ -33,7 +33,7 @@ const UrlInput = styled.TextInput`
   elevation: 2;
   margin-right: 8px;
   padding: 4px 12px;
-  flex-grow: 1;
+  flex: 1 1;
 `;
 
 const Field = styled.View`
@@ -56,7 +56,7 @@ const SubmitButtonText = styled.Text`
 `;
 
 export const VideoForm = ({ onSubmit }) => {
-  let [url, setUrl] = useState("");
+  let [url, setUrl] = useState("https://www.youtube.com/watch?v=ne4PoC7V0Mk");
 
   return (
     <Container>
