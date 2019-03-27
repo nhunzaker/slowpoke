@@ -1,9 +1,8 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState } from "react";
 import Slider from "react-native-slider";
 import styled from "styled-components/native";
 
-import { colorSecondaryDark } from "../colors";
-import { getVideo } from "../../domain/videos";
+import { useVideo } from "../../domain/videos";
 import { Player } from "./player";
 
 const Container = styled.View`
@@ -11,7 +10,6 @@ const Container = styled.View`
   background-color: white;
   display: flex;
   elevation: 1;
-  height: 100%;
   width: 100%;
 `;
 
@@ -65,14 +63,4 @@ export const VideoScreen = ({ videoId }) => {
       </Settings>
     </Container>
   );
-};
-
-export const useVideo = videoId => {
-  let [video, setVideo] = useState(null);
-
-  useEffect(async () => {
-    setVideo(await getVideo(videoId));
-  }, [videoId]);
-
-  return video;
 };

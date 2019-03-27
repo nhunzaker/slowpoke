@@ -8,7 +8,7 @@ export class AboutScreen extends React.Component {
     return (
       <View>
         <Text>About this page</Text>
-        <Text>Yep. That's it</Text>
+        <Text>Yep. That&rsaquo;s it</Text>
       </View>
     );
   }

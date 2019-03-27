@@ -26,7 +26,6 @@ describe("parseYouTube", () => {
 
   for (let [name, url] of patterns) {
     it(`extracts the video id from a ${name}`, () => {
-      const test = parseYouTube(url);
       expect(parseYouTube(url)).toEqual(videoId);
     });
   }

@@ -5,7 +5,9 @@
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "test": "jest",
-    "android": "cd ./android && ./gradlew app:assembleDebug && ./gradlew installDebug"
+    "android": "cd ./android && ./gradlew app:assembleDebug && ./gradlew installDebug;",
+    "format": "prettier --write src/**/*.js",
+    "lint": "eslint src"
   },
   "dependencies": {
     "@nozbe/watermelondb": "^0.12.0",
@@ -22,9 +24,17 @@
     "@babel/core": "^7.4.0",
     "@babel/plugin-proposal-decorators": "^7.4.0",
     "@babel/runtime": "^7.4.2",
+    "babel-eslint": "^10.0.1",
     "babel-jest": "^24.5.0",
+    "eslint": "^5.15.3",
+    "eslint-plugin-jest": "^22.4.1",
+    "eslint-plugin-react-hooks": "^1.6.0",
+    "eslint-plugin-prettier": "^3.0.1",
+    "eslint-plugin-react": "^7.12.4",
+    "eslint-plugin-react-native": "^3.6.0",
     "jest": "^24.5.0",
     "metro-react-native-babel-preset": "^0.53.1",
+    "prettier": "^1.16.4",
     "react-test-renderer": "16.8.5"
   },
   "jest": {
