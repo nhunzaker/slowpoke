@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
+import Slider from "react-native-slider";
 import styled from "styled-components/native";
 
 import { colorSecondaryDark } from "../colors";
@@ -20,80 +21,58 @@ const Settings = styled.View`
   padding: 16px;
 `;
 
-const SettingsTitle = styled.Text`
+const Label = styled.Text`
   font-size: 16px;
-  margin-bottom: 18px;
+  margin-bottom: 8px;
   text-transform: uppercase;
 `;
 
 const Field = styled.View`
+  align-items: center;
   display: flex;
   flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
 `;
 
-const Label = styled.Text`
-  font-size: 14px;
-  font-weight: bold;
-  padding-right: 16px;
-`;
-
-const PlaybackInput = styled.TextInput`
-  background: white;
-  border: 2px solid ${colorSecondaryDark};
-  border-radius: 2px;
-  margin-bottom: 16px;
-  flex: 1;
+const PlaybackValue = styled.Text`
+  flex-shrink: 0;
+  padding-left: 8px;
+  margin-bottom: 4px;
 `;
 
 export const VIDEO_SCREEN = "VIDEO_SCREEN";
 
-export class VideoScreen extends React.Component {
-  state = {
-    video: null,
-    playback: "1"
-  };
+export const VideoScreen = ({ videoId }) => {
+  let video = useVideo(videoId);
+  let [playback, setPlayback] = useState(1);
 
-  setPlayback = playback => this.setState({ playback });
+  return (
+    <Container>
+      <Player video={video} playback={playback} />
 
-  updateVideoPlayback = () => {
-    if (this.player == null) {
-      return;
-    }
+      <Settings>
+        <Label>Playback Rate</Label>
+        <Field>
+          <Slider
+            style={{ flex: 1 }}
+            value={1}
+            minimumValue={0.1}
+            maximumValue={3}
+            step={0.05}
+            onValueChange={setPlayback}
+          />
+          <PlaybackValue>{playback.toFixed(2)}</PlaybackValue>
+        </Field>
+      </Settings>
+    </Container>
+  );
+};
 
-    this.player.injectJavaScript(`
-      var video = document.querySelector('video');
-      if (video != null) {
-        video.playbackRate = ${this.state.playback};
-      }
-    `);
-  };
+export const useVideo = videoId => {
+  let [video, setVideo] = useState(null);
 
-  async componentDidMount() {
-    this.setState({
-      video: await getVideo(this.props.videoId)
-    });
-  }
+  useEffect(async () => {
+    setVideo(await getVideo(videoId));
+  }, [videoId]);
 
-  render() {
-    const { video, playback } = this.state;
-
-    return (
-      <Container>
-        <Player video={video} playback={playback} />
-
-        <Settings>
-          <SettingsTitle>Settings</SettingsTitle>
-          <Field>
-            <Label>Playback Rate</Label>
-            <PlaybackInput value={playback} onChangeText={this.setPlayback} />
-          </Field>
-        </Settings>
-      </Container>
-    );
-  }
-
-  renderPlayer() {}
-}
+  return video;
+};

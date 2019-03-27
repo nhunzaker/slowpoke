@@ -7,6 +7,7 @@ export class Video extends Model {
   // Video title
   @field("title") title;
 
+  // Youtube URL
   @field("url") url;
 
   // Thumbnail image location
