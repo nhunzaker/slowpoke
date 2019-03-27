@@ -18,12 +18,12 @@ const Container = styled.View`
 const Settings = styled.View`
   background-color: white;
   flex-basis: 56%;
-  padding: 16;
+  padding: 16px;
 `;
 
 const Label = styled.Text`
-  font-size: 16;
-  margin-bottom: 8;
+  font-size: 16px;
+  margin-bottom: 8px;
   text-transform: uppercase;
 `;
 
@@ -35,8 +35,8 @@ const Field = styled.View`
 
 const PlaybackValue = styled.Text`
   flex-shrink: 0;
-  padding-left: 8;
-  margin-bottom: 4;
+  padding-left: 8px;
+  margin-bottom: 4px;
 `;
 
 export const VIDEO_SCREEN = "VIDEO_SCREEN";

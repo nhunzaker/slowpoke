@@ -6,7 +6,6 @@ import { allVideos, createVideo } from "../../domain/videos";
 import { VideoForm } from "./videoForm";
 import { VideoList } from "./videoList";
 import { VIDEO_SCREEN } from "../video";
-import { colorPrimaryDark } from "../colors";
 
 const Container = styled.View`
   align-items: stretch;
