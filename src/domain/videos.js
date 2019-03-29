@@ -19,7 +19,12 @@ export const useVideo = videoId => {
 
 export async function createVideo(url) {
   let meta = await getYouTubeMeta(url);
+  let video = await persistVideo(url, meta);
 
+  return video;
+}
+
+export async function persistVideo(url, meta) {
   let video = await DB.action(async () => {
     return Videos.create(video => {
       video.title = meta.title;

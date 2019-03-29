@@ -1,5 +1,10 @@
 import { Model } from "@nozbe/watermelondb";
-import { date, field, readonly } from "@nozbe/watermelondb/decorators";
+import {
+  date,
+  field,
+  relation,
+  readonly
+} from "@nozbe/watermelondb/decorators";
 
 export class Practice extends Model {
   static table = "practices";
@@ -12,7 +17,7 @@ export class Practice extends Model {
   @field("speed") speed;
 
   // Video related to this practice session
-  @field("video") video;
+  @relation("video", "video_id") video;
 
   // Timestamps
   @readonly @date("created_at") createdAt;

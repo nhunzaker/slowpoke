@@ -12,6 +12,8 @@
   "dependencies": {
     "@nozbe/watermelondb": "^0.12.0",
     "@nozbe/with-observables": "^1.0.3",
+    "lodash-es": "^4.17.11",
+    "lodash.clonedeep": "^4.5.0",
     "react": "16.8.5",
     "react-native": "0.59.2",
     "react-native-navigation": "^2.16.0",
@@ -28,9 +30,9 @@
     "babel-jest": "^24.5.0",
     "eslint": "^5.15.3",
     "eslint-plugin-jest": "^22.4.1",
-    "eslint-plugin-react-hooks": "^1.6.0",
     "eslint-plugin-prettier": "^3.0.1",
     "eslint-plugin-react": "^7.12.4",
+    "eslint-plugin-react-hooks": "^1.6.0",
     "eslint-plugin-react-native": "^3.6.0",
     "jest": "^24.5.0",
     "metro-react-native-babel-preset": "^0.53.1",
@@ -38,6 +40,13 @@
     "react-test-renderer": "16.8.5"
   },
   "jest": {
-    "preset": "react-native"
+    "preset": "react-native",
+    "setupFiles": [
+      "<rootDir>/src/__tests__/setup.js"
+    ],
+    "globalTeardown": "<rootDir>/src/__tests__/teardown",
+    "testMatch": [
+      "**/__tests__/**.test.js"
+    ]
   }
 }
