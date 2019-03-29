@@ -1,66 +1,40 @@
 import React, { useState } from "react";
-import Slider from "react-native-slider";
-import styled from "styled-components/native";
 
 import { useVideo } from "../../domain/videos";
+import { usePractices } from "../../domain/practices";
+
+import { Container, Label, Field, Section, PlaybackValue } from "./styles";
 import { Player } from "./player";
-
-const Container = styled.View`
-  align-items: stretch;
-  background-color: white;
-  display: flex;
-  elevation: 1;
-  width: 100%;
-`;
-
-const Settings = styled.View`
-  background-color: white;
-  flex-basis: 56%;
-  padding: 16px;
-`;
-
-const Label = styled.Text`
-  font-size: 16px;
-  margin-bottom: 8px;
-  text-transform: uppercase;
-`;
-
-const Field = styled.View`
-  align-items: center;
-  display: flex;
-  flex-direction: row;
-`;
-
-const PlaybackValue = styled.Text`
-  flex-shrink: 0;
-  padding-left: 8px;
-  margin-bottom: 4px;
-`;
+import { PracticeList } from "./practiceList";
+import { PlaybackSlider } from "./playbackSlider";
 
 export const VIDEO_SCREEN = "VIDEO_SCREEN";
 
 export const VideoScreen = ({ videoId }) => {
   let video = useVideo(videoId);
+  let practices = usePractices(videoId);
   let [playback, setPlayback] = useState(1);
 
   return (
     <Container>
       <Player video={video} playback={playback} />
 
-      <Settings>
+      <Section>
         <Label>Playback Rate</Label>
         <Field>
-          <Slider
-            style={{ flex: 1 }}
-            value={1}
-            minimumValue={0.1}
-            maximumValue={3}
-            step={0.05}
+          <PlaybackSlider
+            value={playback}
+            video={video}
             onValueChange={setPlayback}
           />
           <PlaybackValue>{playback.toFixed(2)}</PlaybackValue>
         </Field>
-      </Settings>
+      </Section>
+
+      <Section>
+        <Label>Previous Sessions</Label>
+        <PracticeList items={practices} />
+      </Section>
     </Container>
   );
 };

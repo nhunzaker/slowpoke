@@ -1,12 +1,12 @@
 import { Database } from "@nozbe/watermelondb";
-import SQLiteAdapter from "@nozbe/watermelondb/adapters/sqlite";
+import { Features } from "../features";
 
 import { schema } from "./schema";
 import { Video } from "./models/video";
 import { Practice } from "./models/practice";
 
 export const DB = new Database({
-  adapter: new SQLiteAdapter({ schema }),
+  adapter: Features.databaseAdapter(schema),
   modelClasses: [Video, Practice],
   actionsEnabled: true
 });

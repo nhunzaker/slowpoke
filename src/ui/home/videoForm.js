@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components/native";
-import { colorTextLight, colorSecondary } from "../colors";
+import { colorSecondary, colorTextLight } from "../colors";
 
 const Container = styled.View`
   padding: 32px 8px 36px;
