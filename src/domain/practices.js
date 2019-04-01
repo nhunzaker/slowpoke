@@ -1,25 +1,14 @@
 import { Q } from "@nozbe/watermelondb";
-import { useEffect, useState } from "react";
-
 import { DB, Practices } from "../data/database";
+import { useDatabase } from "./domain";
 
 export function videoPractices(videoId) {
-  return Practices.query(Q.where("video_id", videoId));
+  return Practices.query(Q.where("video_id", videoId)).observe();
 }
 
-export const usePractices = videoId => {
-  let [practice, setPractice] = useState([]);
-
-  useEffect(() => {
-    let subscription = videoPractices(videoId)
-      .observe()
-      .subscribe(setPractice);
-
-    return () => subscription.unsubscribe();
-  }, [videoId]);
-
-  return practice;
-};
+export function usePractices(videoId) {
+  return useDatabase(videoPractices, { args: [videoId], initial: [] });
+}
 
 export function createPractice(video, speed) {
   return DB.action(async () => {

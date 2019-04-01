@@ -33,3 +33,23 @@ export const PlaybackValue = styled.Text`
   padding-left: 8px;
   margin-bottom: 4px;
 `;
+
+export const List = styled.FlatList`
+  padding-top: 8px;
+`;
+
+export const ListItem = styled.View`
+  border-color: ${colorDivider};
+  border-bottom-width: 1px;
+  padding: 8px 20px;
+  min-height: 40px;
+  display: flex;
+  flex-direction: row;
+`;
+
+export const DateText = styled.Text`
+  font-weight: bold;
+  flex-grow: 1;
+`;
+
+export const SpeedText = styled.Text``;

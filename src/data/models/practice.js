@@ -22,4 +22,8 @@ export class Practice extends Model {
   // Timestamps
   @readonly @date("created_at") createdAt;
   @readonly @date("updated_at") updatedAt;
+
+  get key() {
+    return this.id;
+  }
 }

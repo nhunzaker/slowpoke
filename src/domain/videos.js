@@ -1,21 +1,22 @@
-import { useEffect, useState } from "react";
-
 import { DB, Videos } from "../data/database";
 import { getYouTubeMeta } from "../data/endpoints/youtube";
+import { useDatabase } from "./domain";
 
 export function allVideos() {
-  return Videos.query().fetch();
+  return Videos.query().observe();
 }
 
-export const useVideo = videoId => {
-  let [video, setVideo] = useState(null);
+export function getVideo(id) {
+  return Videos.findAndObserve(id);
+}
 
-  useEffect(() => {
-    Videos.find(videoId).then(setVideo);
-  }, [videoId]);
+export function useVideos() {
+  return useDatabase(allVideos, { initial: [] });
+}
 
-  return video;
-};
+export function useVideo(videoId) {
+  return useDatabase(getVideo, { args: [videoId] });
+}
 
 export async function createVideo(url) {
   let meta = await getYouTubeMeta(url);
