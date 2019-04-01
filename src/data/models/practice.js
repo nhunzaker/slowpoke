@@ -23,7 +23,6 @@ export class Practice extends Model {
   @readonly @date("created_at") createdAt;
   @readonly @date("updated_at") updatedAt;
 
-  get key() {
-    return this.id;
-  }
+  // Identifier for list views
+  @field("id") key;
 }
