@@ -2,8 +2,8 @@ import React, { useState } from "react";
 
 import { useVideo } from "../../domain/videos";
 import { usePractices } from "../../domain/practices";
-
-import { Container, Label, Field, Section, PlaybackValue } from "./styles";
+import { Screen } from "../screen";
+import { Container, Divider } from "./styles";
 import { Player } from "./player";
 import { PracticeList } from "./practiceList";
 import { PlaybackSlider } from "./playbackSlider";
@@ -16,25 +16,20 @@ export const VideoScreen = ({ videoId }) => {
   let [playback, setPlayback] = useState(1);
 
   return (
-    <Container>
-      <Player video={video} playback={playback} />
+    <Screen>
+      <Container>
+        <Player video={video} playback={playback} />
 
-      <Section>
-        <Label>Playback Rate</Label>
-        <Field>
-          <PlaybackSlider
-            value={playback}
-            video={video}
-            onValueChange={setPlayback}
-          />
-          <PlaybackValue>{playback.toFixed(2)}</PlaybackValue>
-        </Field>
-      </Section>
+        <PlaybackSlider
+          value={playback}
+          video={video}
+          onValueChange={setPlayback}
+        />
 
-      <Section>
-        <Label>Previous Sessions</Label>
+        <Divider />
+
         <PracticeList items={practices} />
-      </Section>
-    </Container>
+      </Container>
+    </Screen>
   );
 };

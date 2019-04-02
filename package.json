@@ -10,15 +10,17 @@
     "lint": "eslint src"
   },
   "dependencies": {
-    "@nozbe/watermelondb": "^0.12.0",
+    "@nozbe/watermelondb": "^0.12.1",
     "@nozbe/with-observables": "^1.0.3",
     "lodash-es": "^4.17.11",
     "lodash.clonedeep": "^4.5.0",
-    "react": "16.8.5",
-    "react-native": "0.59.2",
+    "react": "16.8.6",
+    "react-native": "0.59.3",
     "react-native-navigation": "^2.16.0",
+    "react-native-paper": "^2.15.0",
     "react-native-slider": "^0.11.0",
-    "react-native-webview": "^5.4.6",
+    "react-native-vector-icons": "^6.4.2",
+    "react-native-webview": "^5.5.0",
     "styled-components": "^4.2.0",
     "tinytime": "^0.2.6"
   },
@@ -28,7 +30,7 @@
     "@babel/runtime": "^7.4.2",
     "babel-eslint": "^10.0.1",
     "babel-jest": "^24.5.0",
-    "eslint": "^5.15.3",
+    "eslint": "^5.16.0",
     "eslint-plugin-jest": "^22.4.1",
     "eslint-plugin-prettier": "^3.0.1",
     "eslint-plugin-react": "^7.12.4",
@@ -37,7 +39,7 @@
     "jest": "^24.5.0",
     "metro-react-native-babel-preset": "^0.53.1",
     "prettier": "^1.16.4",
-    "react-test-renderer": "16.8.5"
+    "react-test-renderer": "16.8.6"
   },
   "jest": {
     "preset": "react-native",

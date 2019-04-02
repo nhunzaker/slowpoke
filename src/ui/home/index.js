@@ -1,6 +1,7 @@
 import React from "react";
 
 import { createVideo, useVideos } from "../../domain/videos";
+import { Screen } from "../screen";
 import { visitVideo } from "../../navigation";
 import { VideoForm } from "./videoForm";
 import { VideoList } from "./videoList";
@@ -18,17 +19,19 @@ export function HomeScreen({ componentId }) {
   }
 
   return (
-    <Backdrop
-      source={require("../../assets/violin.jpg")}
-      imageStyle={{ opacity: 0.3 }}
-    >
-      <Container>
-        <VideoForm onSubmit={onVideoCreate} />
-        <VideoList
-          items={videos}
-          onPress={visitVideo.bind(null, componentId)}
-        />
-      </Container>
-    </Backdrop>
+    <Screen>
+      <Backdrop
+        source={require("../../assets/violin.jpg")}
+        imageStyle={{ opacity: 0.3 }}
+      >
+        <Container>
+          <VideoForm onSubmit={onVideoCreate} />
+          <VideoList
+            items={videos}
+            onPress={visitVideo.bind(null, componentId)}
+          />
+        </Container>
+      </Backdrop>
+    </Screen>
   );
 }

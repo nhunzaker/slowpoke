@@ -1,24 +1,19 @@
 import styled from "styled-components/native";
-import { colorDivider } from "../colors";
+import {
+  Surface,
+  List as PaperList,
+  Subheading as PaperSubheading
+} from "react-native-paper";
 
 export const Container = styled.View`
   align-items: stretch;
   background-color: white;
   display: flex;
-  elevation: 1;
   width: 100%;
 `;
 
-export const Section = styled.View`
+export const Section = styled(Surface)`
   background-color: white;
-  border-bottom-color: ${colorDivider};
-  border-bottom-width: 1px;
-`;
-
-export const Label = styled.Text`
-  font-size: 16px;
-  padding: 16px 16px 8px;
-  text-transform: uppercase;
 `;
 
 export const Field = styled.View`
@@ -38,18 +33,13 @@ export const List = styled.FlatList`
   padding-top: 8px;
 `;
 
-export const ListItem = styled.View`
-  border-color: ${colorDivider};
-  border-bottom-width: 1px;
-  padding: 8px 20px;
-  min-height: 40px;
-  display: flex;
-  flex-direction: row;
+export const ListItem = PaperList.Item;
+
+export const ListSection = PaperList.Section;
+
+export const Subheading = styled(PaperSubheading)`
+  padding: 16px 16px 8px;
+  text-transform: uppercase;
 `;
 
-export const DateText = styled.Text`
-  font-weight: bold;
-  flex-grow: 1;
-`;
-
-export const SpeedText = styled.Text``;
+export { Divider } from "react-native-paper";
