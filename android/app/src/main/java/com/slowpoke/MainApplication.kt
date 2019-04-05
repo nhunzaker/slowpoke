@@ -1,6 +1,9 @@
 package com.slowpoke
 
 import com.facebook.react.ReactPackage
+import com.microsoft.appcenter.reactnative.analytics.AppCenterReactNativeAnalyticsPackage
+import com.microsoft.appcenter.reactnative.appcenter.AppCenterReactNativePackage
+import com.microsoft.appcenter.reactnative.crashes.AppCenterReactNativeCrashesPackage
 import com.nozbe.watermelondb.WatermelonDBPackage
 import com.reactnativecommunity.webview.RNCWebViewPackage
 import com.reactnativenavigation.NavigationApplication
@@ -12,7 +15,10 @@ class MainApplication : NavigationApplication() {
     private val packages: List<ReactPackage>
         get() = listOf(
                 RNCWebViewPackage(),
-                WatermelonDBPackage()
+                WatermelonDBPackage(),
+                AppCenterReactNativePackage(this),
+                AppCenterReactNativeAnalyticsPackage(this, resources.getString(R.string.appCenterAnalytics_whenToEnableAnalytics)),
+                AppCenterReactNativeCrashesPackage(this, resources.getString(R.string.appCenterCrashes_whenToSendCrashes))
         )
 
     override fun createReactGateway(): ReactGateway {

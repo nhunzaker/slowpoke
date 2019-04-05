@@ -72,7 +72,11 @@ android {
 }
 
 dependencies {
+    implementation project(':appcenter')
+    implementation project(':appcenter-analytics')
+    implementation project(':appcenter-crashes')
     implementation project(':react-native-vector-icons')
+
     implementation fileTree(dir: "libs", include: ["*.jar"])
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
